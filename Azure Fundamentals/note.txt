@@ -160,3 +160,66 @@ an action
 External identities-
 the ability to give access to your azure resources to people outside your
 organiztion 
+
+Passwordless login-
+using iris,face and fingerprint 
+
+Role-based control (RBAC)-
+it is a method of restricting access to the resources based on roles in the 
+organiztion
+
+JIT - Just-in-time 
+JEA -just-enough-access -
+this increases the time of sso just enough until the user becomes non-elevated user 	
+
+Cost-Mangement in Azure -
+Factors that affect the cost -
+1)resource type 
+2)usage and billing model 
+pay as you go,reserved instances,spot pricing 
+3)service tiers and configuration 
+for ex in app service free basic standard and premium
+chosing more cpu,memory or performance 
+4)Licensing cost 
+windows or sql licese
+5)Data Transfer
+inbound data is free and outband data is charged beyond certain limit
+6)unused resource
+vm will be charged still if not used 
+7)addtitional considerations-
+storage access tiers like hot cool archive 
+
+Azure Policy enforces rules on resource properties to ensure compliance,
+while Azure Blueprints (being replaced by template specs) orchestrate the 
+deployment of ARM templates, policies, and role assignments to create compliant 
+environments
+
+Resource lock-
+it is a way to restrict the abilty to modify or delete that resource
+prevent accidents or any attacks 
+
+two types -
+1)read only 2) can not delete
+Scope-
+1)resource level 2)resource group level 3)subscription level 
+even the owner will not be able to access if lock is implemented it 
+
+Azure Arc uses the dashboard of azure to control vms and containers
+across various other clouds also 
+
+Infrastructure as a code (IAC)-
+this saves your configuration in a file
+for this we use arm templates,bicep,terraform,chef,puppet,powershell
+scripts  
+
+ARM-Azure Resource Manager -
+Azure Resource Manager (ARM) is the native management and deployment 
+layer for Azure, allowing you to create, update, and delete resources 
+(VMs, databases, web apps) in a consistent, repeatable way.
+
+Monitoring tools-
+Azure advisor
+azure service health
+
+Kusto Query Language (KQL)-
+it is used in azure monitor reports there are pre-defined queries 
