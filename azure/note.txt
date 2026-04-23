@@ -129,3 +129,34 @@ LRS copies data 3 times within one datacenter. ZRS copies data 3 times across
 GRS & GZRS- 6 copies
 grs -Replicated to 3 zones using LRS 
 gzrs-Replicated to 3 zones using ZRS
+
+Azcopy-
+copying data from on-premises source to azure storage
+and vice-versa  or azure stroage to azure storage 
+
+SAS tokens-
+they give access to blob stroage such r/w/x
+
+we need both the sas token for source and destination
+and use azcopy command
+azcopy copy "source_path" "https://[account].blob.core.windows.net/[container]?[SAS_token]"
+
+Azure migrate -
+used migrate on-premises server into azure 
+
+azure data box = snowball or snowmobile 
+data box-
+they send the data box based hard disk on your data size and after copying 
+you send it back it is encrypted while traveling 
+
+entra = IAM    
+
+Authentication -it is a user porving who they are using user id 
+and password
+
+Authorization -it is way of ensuring that a user is permitted to perform
+an action
+
+External identities-
+the ability to give access to your azure resources to people outside your
+organiztion 
