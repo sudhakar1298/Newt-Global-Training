@@ -13,6 +13,9 @@ providers over the public Internet, making them available to anyone who wants
 to use or purchase them
 
 Private Cloud-
+The private cloud is defined as computing services offered either over the 
+Internet or a private internal network and only to select users instead of
+the general public
 
 Hybrid cloud-
 A hybrid cloud is a computing environment that combines a private cloud
@@ -35,3 +38,94 @@ Horizontal Scaling -Scaling out or in
 Elasticity-
 The abilty of a system to quickly and easily scale up or down the resources
 that a system uses in response to chaging demand 
+
+IAAS-
+Infrastructure as a service
+they provide computing,stroage,networking services
+
+Paas-
+Platform as a service
+they provideservice layes on top of iaas 
+ex-azure app services,managed Stroage.azure front door
+
+Saas-
+Software as a service 
+they provide tools like office 35,onedrive,skype
+
+Serverless-
+you dont managae the servers write the code and upload it
+azure functions =lambda 
+container apps,kubernetes,sql db,cosmos db they are serverless
+
+there are 60 regions in total  
+
+Zonal services-
+you can choose a specific az to delpoy the service 
+you can also choose another duplicate service and deploy in another az 
+to achive resilisency
+
+Zone-redundant service-
+it automatically deploys across zones for you no need to configure it 
+ex- azure db 
+
+always available service-
+these are gloabal services and microsoft will take care that it will
+always run 
+ex-non regional service
+
+App Services (Web apps)-
+you package your code and upload it and give the configuration to run it 
+no access to hardware this is paas
+used to host web sites,restful apis,mobile backend
+
+
+Conatiner services-
+1) azure container instace-single instace quickest way to delpoy
+2) azure container apps -easy to use like web service with advanced features
+3) azure kubernetes services - runs on a cluster of servers, entripse -grade 
+
+Azure Virtual Desktop-
+desktop version of windos that runs in cloud 
+
+vnets= vps 
+nsg-network security group
+
+peering-this allows communication between a vm on one network and another
+vm on a different network 
+
+Azure dns-
+you can give your ip addresses name using dns 
+it only applies internally to azure to applied networks 
+
+Azure Stroage (GPv2)-
+they can store 4 types of data-container,file,queue,table
+max 5pb 
+cheap cloud stroage
+not recommened for high-deamand workloads
+2 cents per gb per month 
+
+Data Lake-
+extermely large storage 
+for big data 
+
+Blob stroage- binary large object = s3 bucket
+unstructued data
+they can store any type of data 
+stored lossely in container
+blob can be part of only one container
+
+Access tiers -
+i)hot-the default,balanced access
+ii)cool-can be set as default , cheaper storage with more expensive read/wite
+operations 
+iii)cold-much cheaper storage,more expensive r/w operations 
+iv)archive-cannot get immediate access to files ,cheapest storage,most 
+expensive operations
+
+LRS &ZRS - 3copies 
+LRS copies data 3 times within one datacenter. ZRS copies data 3 times across 
+3 separate Availability Zones within a region.
+
+GRS & GZRS- 6 copies
+grs -Replicated to 3 zones using LRS 
+gzrs-Replicated to 3 zones using ZRS
