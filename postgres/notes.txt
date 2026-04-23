@@ -1,0 +1,14 @@
+Composite Data type-
+
+	CREATE TYPE AS(
+	product_naee varchar (200) ,
+	supplier_id int,
+	price NUMERIC
+	)
+ 
+For inserting -
+	INSERT INTO inventory (item) VALUES (row (pen, 10,4.99))
+	
+for Selecting-
+	select (item).product_name from inventory where (item).price >3.99
+	
