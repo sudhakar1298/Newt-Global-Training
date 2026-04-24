@@ -1,0 +1,48 @@
+Sequence-
+
+Create Sequence-
+Create Sequence if not exists name 
+
+Create Sequence if not exists name start with 100
+Create Sequence if not exists name 
+increment 50
+minvalue 400
+maxvalue 60000
+start with 500
+
+Create Sequence if not exists name as [smallint|int|bigint]
+Create Sequence if not exists name 
+increment -1
+minvalue 1
+maxvalue 3 
+start 3
+cycle ;
+after min value is reached next time the val is set to max val and vice versa 
+
+
+for nextval-
+select nextval('name')
+
+output- 1 when it runs again 2 then 3 ....
+
+
+
+curval(name) - it gives the current value 
+
+setval(name,val) -it set s the value 
+in this when we run nextval it will give val+1
+setval(name,val,false)-
+in this when we run nextval it will give val next  time val+1 
+
+alter sequence-
+Alter Sequence name restart with val ;
+Alter Sequence name rename to new_name;
+
+Drop Sequence name;
+
+to connect it to a table-
+Create Sequence if not exists name 
+start with 100 owned by user2.user2_id;
+user2 is the table name and user2_id is the column 
+
+for creating a alphanumeric value use || while creating the table and use nextval()

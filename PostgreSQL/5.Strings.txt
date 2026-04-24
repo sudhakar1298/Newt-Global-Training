@@ -1,0 +1,73 @@
+Upper- every char will be in upper cap 
+lower -every char will be in lower cap 
+initcap- every first letter of the word will be upper cap 
+Left(string,n)-it will return the  first n chars from left of the string 
+Right(string,n)-it will return the  first n chars from right of the string
+if negative value is given the in left lets take it then from right it will remove
+left(abc ,-1) it will give ab
+right(abc ,-1) it will give bc 
+
+Reverse-
+reverse(string) it will give the reverse of the string 
+
+Split_part-
+split_part(string,delimiter,pos)
+
+Split_part('1,2,3',',',2) - output is 2
+
+Trim-
+trim ([leading|trailing |both ] from string)
+if nothing is given both will be default 
+
+Ltrim,rtrim,btrim -
+xtrim(string,partofstring)
+as the x can be l r b it will remove the partofstring from the string 
+
+Lpad- functions pads a a char to the string to fill the length in left 
+Lpad('string',len,'char')
+Rpad- functions pads a a char to the string to fill the length in right 
+Rpad('string',len,'char')
+ 
+Length-
+it returns the length of the string 
+
+Position-
+position(substring in String) it returns the starting position number 
+it is case sentitive 
+
+strpos-
+strpos(String,substring)
+it returns the position number 
+
+ANSI SQL (American National Standards Institute Structured Query Language)
+
+Substring-
+substring(string from 1 to 4);
+
+repeat-
+repeat('string',num) 
+it repeats the string given the number of times 
+
+Replace-
+replace(string,from,to )
+it replaces all the occurence of the strings
+it is case sentitive
+
+
+
+Aggregate functions-
+
+
+Count(*) counts the null value also 
+count() will not include null value
+Count(1) wont work on joined tables 
+
+Greatest-
+Greatest(1,2,3,4,3,4) it will give the greatest value 4
+
+Least-
+Least(1,2,3,4,3,4) it will give the Least value 1
+
+All the data must be of same type
+
+greatest does not accept distinct keyword and over clause 
