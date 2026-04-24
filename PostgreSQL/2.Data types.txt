@@ -1,0 +1,174 @@
+Boolean-
+TRUE - true t y yes 1 
+FALSE - false f n no 0
+
+numeric(precision, scale)
+
+precision-
+	Maximum number of digits to the left and right of the decimal point
+
+Scale- 
+	number of digits allowable on the right of the decimal point.
+
+
+real - 6 decimal precision
+double precision - 15 decimal precision
+
+Timestamp - Timestamp without timezone
+Timestampz - Timestamp with timezone
+Show timezone - it shows your current timezone
+set timezone='' 
+whatever input you give is stored in utc format and for the output it 
+is converted to the systems timezone 
+
+select Current_Timestamp;
+Select TIMEOFDAY();
+Select timezone('Asia/Singapore','2020-01-01 00:00:00')
+it will give the equalant time in Singapore time 	
+
+UUID-
+UUID is much much better than the SERIAL data type when it comes to
+'uniquness' across systems as SERIAL data type generates only unique 
+values within a single database. 
+
+for downloading the uuid-
+Create Extension if not exists "uuid-ossp";
+select uuid_generate_v1()- this uses mac address and timestamp and random number
+select uuid_generate_v4() -this completly random 
+ 
+Create table uud 
+( proid UUID DEFAULT uuid_generate_v1());
+
+changing default value 
+ alter table uud 
+ alter column proid
+ set default uuid_generate_v4(); 
+ 
+ 
+HSTORE -
+it stores data in key-value pairs
+the values are just strings only
+
+Create Extension if not exists hstore;
+ex-
+CREATE TABLE products (
+    id SERIAL PRIMARY KEY,
+    name TEXT,
+    attributes HSTORE
+);
+
+INSERT INTO products (name, attributes) 
+VALUES ('Backpack', 
+	'
+	"color"=>"blue", 
+	"size"=>"large"
+	');
+
+TO print specfic key-
+select attributes->'color' from products;
+
+
+Add a column -
+alter table table_name 
+add column column_name data_type constraints ,
+add column column_name data_type constraints;
+
+Rename a table- 
+alter table table_name
+rename to new_table_name;
+
+Rename a column name -
+alter table table_name 
+rename column old_name to new_name;
+
+Drop column-
+Alter table table_name
+drop column column_name;
+
+change the data type -
+Alter table table_name
+alter column column_name type data_type
+using age::integer;
+
+if the column old type is in string we have to usse the using 
+
+set a default value-
+alter table table_name
+alter column column_name set default 'v';
+
+add constraint-
+Alter table table_name
+add constraint constraint_name unique(column);
+
+adding  check-
+Alter table table_name
+add constraint constraint_name check(column in (values));
+
+Data conversion -
+implict -conversion done automatically 
+explicit - we have to do the conversion
+
+CAST-
+CAST(expression as data_type)
+expression can be a calue or column
+ 
+to_char()-
+to_char(expression,format)
+
+to_char('100870','9,99999') --output - 1,00870
+to_char(date,'DD--MM-YYYY') 
+
+to_number()-
+to_number(string,format)
+to_number('1420.89',9999.99) --output - 1420.89
+
+to_date()-
+to_date(text,format)
+to_date('2020/10/22','YYYY/MM/DD')
+
+to_timestamp()-
+to_timestamp(timestamp,format)
+	
+	
+Create a user defined data type -
+
+Create domain statement is used for this 
+
+CREATE DOMAIN addr varchar(100) not null ;
+
+Droping domain -
+drop domain domain_name ;
+
+
+
+Composite Data type-
+
+	CREATE TYPE AS(
+	product_naee varchar (200) ,
+	supplier_id int,
+	price NUMERIC
+	)
+ 	
+to print the value in composite data type 
+(composite_column).field
+if there are joins 
+then (tablenmae.composite_column).field
+ 
+Drop data_type 
+drop type type_name 
+
+Rename data type-
+Alter type name rename new_name;
+
+change owner 
+Alter type name owner to username 
+
+move the type to a different schema -
+alter type name set schema schema_name 
+
+Add an attributes to type-
+alter type name add attribute attribute 
+
+in enum alter -
+alter type name add value value_name [before|after] value;
+  
