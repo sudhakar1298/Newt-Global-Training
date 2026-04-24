@@ -1,14 +1,80 @@
-Composite Data type-
+Order of excecution-
+FROM - Where - Select - Order by
+DATABASE-
+CREATE DATABASE db_name;
 
-	CREATE TYPE AS(
-	product_naee varchar (200) ,
-	supplier_id int,
-	price NUMERIC
-	)
- 
-For inserting -
-	INSERT INTO inventory (item) VALUES (row (pen, 10,4.99))
-	
-for Selecting-
-	select (item).product_name from inventory where (item).price >3.99
-	
+DROP DATABASE IF EXISTS db_name ;
+
+TABLE-
+CREATE TABLE table_name (column_name data_type);
+
+DROP TABLE table_name;
+
+INSERT INTO table_name (column_name1,column_name2) 
+VALUES (value1,value2);
+
+for a string containing quotes we have to add a extra quote
+
+INSERT INTO table_name (name) 
+VALUES ('bill''o sullivan');
+
+Returning- it returns or prints the data what is inserted 
+
+INSERT INTO table_name (name) 
+VALUES ('bill''o sullivan') Returning *;
+
+to get a specfic column_name we replace * with the column_name
+
+UPDATE table_name 
+SET column_name='new_value,column_name2='new_value2'
+where column_name='v';
+
+here aslo we can use Returning
+
+DELETE FROM table_name WHERE column_name='value';
+not 
+
+UPSERT-
+when you insert a new row into the table it will update the row if it aslready exists
+otherwise it will insert it
+
+INSERT INTO table_name (column_name)
+VALUES(value)
+ON CONFLICT target action;
+
+the action can be nothing 
+update statement 
+
+ex- 
+INSERT INTO ttage(tag)
+values ('pen')
+on conflict (tag)
+do 
+	update set 
+		tag=excluded.tag,
+		update_date=NOW();
+
+
+in pgadmin while keeping a string as a default give it in a quotes 
+
+in order by we can use alias name also 
+
+NULLS first and last -
+select * from table_name order by column_name NULLS FIRST;
+select * from table_name order by column_name NULLS LAST;
+
+FETCH-
+FETCH {FIRST|NEXT} [row count] {ROW|ROWS} ONLY
+we can use offset with this before or after FETCH but only after order by 
+select * from movies 
+FETCH FIRST 5 ROW ONLY; 	 
+
+Concatenation techniques-
+we can use || 
+select 'str1'||'str2'' ;
+select concat('str1','str2);
+select concat_ws('|','str1','str2); -- output str1|str2
+
+if we have while using || it gives null in total
+if we have while using concat it gives the concated value 
+concat_ws it ignores the null value it just leaves it empty  
