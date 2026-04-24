@@ -1,0 +1,75 @@
+
+flow chart of a chatgpt app 
+
+Front-end
+Backend
+Wrapper api -azure function 
+openai api 
+gpt -3 model 
+
+.bubble is frontend and as well as backend 
+
+Bubble.io -
+	it is a popular visual programming platform used to build, launch,
+and host web and mobile applications without writing traditional code. 
+
+
+Microsoft Power Apps -
+	it is a low-code/no-code development platform 
+used to rapidly build custom business applications without traditional 
+programming knowledge
+
+Microsoft Power Automate-
+	it is a low-code cloud service used to automate 
+repetitive tasks, streamline business workflows, and connect disparate 
+applications without requiring complex coding
+
+Open api -models
+1)GPT-3
+	natural language task with promt 
+2)Codex-
+		natural language to code 
+3)Dall-E-
+	create and edit images with natural language
+
+GPT-3-
+there are various models 
+but davinici is the highest quality of the gpt model and highest cost 
+
+Prompts-
+they are the instructions on how you program the model 
+how good are the prompts the better the results
+garbage in =garbage out
+
+Tokens-
+1 token is approx 4 chars
+they are the currency on gpt models these models process text by breaking it down 
+into smaller untis they are called token
+The total tokens = input (prompt) + output (response)
+
+Temperature -
+it ranges from 0 to 1
+higher values means more creative and less means well-defined answer
+
+for setting it up https://developers.openai.com/api/docs/libraries 
+and code it there 
+
+
+from openai import OpenAI
+sec=""
+
+client = OpenAI()
+client.api_key=sec
+response = client.responses.create(
+    model="gpt-5.4",
+    input="Write a one-sentence bedtime story about a unicorn.",
+	max_tokens=200,
+	temperature=0
+)
+
+print(response.output_text['choices'][0]['text'])
+
+
+Power automate it is used automate repetitive task 
+we use it to create a flow 
+we can use this teams to connect it 
