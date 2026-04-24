@@ -1,0 +1,78 @@
+Show DateStyle;
+it gives the type and format
+types-ISO,postgres,SQL,German
+Format -
+	MDY,DMY,YMD
+
+set DateStyle ='ISO,DMY';
+with this we can change the datestyle
+
+to_date-
+to_date(string,format)
+to_date('2020-01-01','YYYY-MM-DD')
+it gives the date in datestyle
+
+to_timestamp-
+to_timestamp(string,format)
+it returns the timestamp local timezone format 
+
+Current_Timestamp-
+it prints the current time 
+
+Make_date(yyyy,mm,dd)-
+use this to create the date 
+Make_date(2020,12,31) --output 2020-12-31 
+
+Make_time(hh,mm,ss)-
+Make_time(2,3,4.05) --output 02:03:4.05
+
+Make_timestamp(yyyy,mm,dd,hh,ss)-
+Make_timestamp(2020,01,01,10,30,45)-output 2020-01-01 10:30:45 
+
+Make_interval(years,months,weeks,days,hours,min,seconds) -
+Make_interval(2020,1,1,1,10,30,45)--output - 2020years 1 mon  days 10:30:45
+1 week -8 days
+2 week -15 days 
+3 week -22 days
+4 week -29 days
+
+Make_timestamptz-
+Make_timestamptz(yyyy,mm,dd,hh,ss,tz) if timezone not given it takes 
+the local timezone
+
+Extract-
+Extract(day from Current_Timestamp)-gives the day, similar it will give everything
+
+Overlap -
+(start,end) overlaps (start,end) 
+it returns true if it overlaps or fasle otherwise 
+
+Current_Date
+Current_Time 
+as the name suggestes it gives time and date 
+localtime it give time without the timezone
+in the bracket if give a number it gives that much perscion 
+
+Age-
+age(date1,date2)
+it returns date1-date2
+
+similar without age function we can find the difference 
+in seconds- 
+select extract(Epoch from timestamp '2020-12-20')
+-extract(Epoch from timestamp '2020-10-20')
+;
+it will give in seconds
+divide the answer by 60/60/24 to give in hours 
+
+date_part('year',timestamp'2017-01-01') 
+returns the year similarly it returns quarter month decade century 
+
+
+Date_trunc-
+PostgreSQL date_trunc() function to truncate a timestamp or interval to a specified level of precision.
+The date_trunc function truncates a TIMESTAMP or an INTERVAL value based on a specified date part e.g. ,
+hour, week, or month and returns the truncated timestamp or interval with a level of precision.
+
+Date_trunc('hour',TIMESTAMP'2020-10-01 05:15:45')
+it will give 2020-10-01 05:00:00
