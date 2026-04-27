@@ -1,0 +1,23 @@
+Database is a place where we store the data 
+Apex-tool sql command editor website 
+
+ 
+SELECT table_name FROM user_tables;
+
+Dual table is a special one-row, one-column dummy table 
+to do testing wheater it works or not on a dummy
+
+time and date functions-
+sysdate returns system date
+systimestamp returns system timestamp 
+add_months('date',num)-adds the number of months we can give in negative also
+months_between('date1','date2')-gives months between given date 
+trunc(date,'month')- this is what it returns
+'DAY'	Start of the week 
+'MONTH'	First day of the month
+'YEAR'	First day of the year 
+
+
+NVL(column,value)-It replaces all the null value to value 
+NVL2-NVL2(expr1, value_if_not_null, value_if_null)
+NULLIF(arg1,arg2) if arg1==arg2 then will give null 

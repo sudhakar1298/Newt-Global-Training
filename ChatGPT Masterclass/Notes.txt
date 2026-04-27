@@ -73,3 +73,12 @@ print(response.output_text['choices'][0]['text'])
 Power automate it is used automate repetitive task 
 we use it to create a flow 
 we can use this teams to connect it 
+
+power Apps-
+It is used to build a applications with no-code/low-code 
+
+in powerapps there will be option for automation like in power automate in the side 
+the output from the previous box will be nmaed as body in the workflows
+
+Download yeoman for configuring microsoft outlook it gives a example code 
+npm install -g yo generator-office
