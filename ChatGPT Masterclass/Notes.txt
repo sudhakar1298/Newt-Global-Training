@@ -80,5 +80,9 @@ It is used to build a applications with no-code/low-code
 in powerapps there will be option for automation like in power automate in the side 
 the output from the previous box will be nmaed as body in the workflows
 
+
+Office pulg in 
 Download yeoman for configuring microsoft outlook it gives a example code 
 npm install -g yo generator-office
+
+then to start the project type yo office 

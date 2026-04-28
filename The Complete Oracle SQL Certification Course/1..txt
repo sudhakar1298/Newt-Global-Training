@@ -21,3 +21,162 @@ trunc(date,'month')- this is what it returns
 NVL(column,value)-It replaces all the null value to value 
 NVL2-NVL2(expr1, value_if_not_null, value_if_null)
 NULLIF(arg1,arg2) if arg1==arg2 then will give null 
+
+Count(*)-counts null value also 
+count()-does not count null values 
+
+using-
+instead of using on we can use the key word USING and give the column name in ()
+select ename
+from enmp join dept using(deptno);
+
+select *,sum(A) over (partition by column) from tbale;
+
+insert all 
+into tb1 (id,val) value (1,'val')
+into tb2 (id,val) value(2,'val')
+select empno from tbbale 
+
+we can also use when condition here
+insert all 
+when sal<=1500 then 
+into tb1 (id,val) value (1,'val')
+when sal between 1500 and 2400 then 
+into tb2 (id,val) value(2,'val')
+
+select empno,sal  from tbbale 
+
+Merge--
+MERGE INTO TargetTable AS T
+USING SourceTable AS S
+ON T.ID = S.ID
+WHEN MATCHED THEN
+    UPDATE SET T.Name = S.Name, T.Price = S.Price
+WHEN NOT MATCHED THEN
+    INSERT (ID, Name, Price)
+    VALUES (S.ID, S.Name, S.Price)
+WHEN NOT MATCHED BY SOURCE THEN
+    DELETE; -- Optional: cleans up target rows not in source
+
+Pseduo column -rowid 
+it is a column that has the memory addr of the rows 
+
+Synonym -
+keeping alias name for a table 
+create synonym a for b;
+
+View-
+Create view view_name as 
+select a,b,c from table;
+
+DML-Data Maupalation Language-
+Select,update ,insert,delete
+
+DDL-Data Defintion Language-
+create,drop 
+
+DCL-Data Control Language-
+Revoke,Grant,Role 
+GRANT SELECT, UPDATE ON Employees TO 'john_doe';
+REVOKE UPDATE ON Employees FROM 'john_doe';
+CREATE ROLE 'manager';
+
+TCL-Transaction Control Language-
+Rollback,Commit,Savepoint
+
+Fetch -
+select * from table
+fetch next 5 rows only 
+it only prints first 5 rows 
+using offset will lets says offset 2 then it will start from 3 
+
+With ties-
+If there are extra rows in the database that have the exact same
+values as that last row, it includes them too—even if it goes over your requested limit. 
+SELECT Name, Score
+FROM Students
+ORDER BY Score DESC
+FETCH NEXT 3 ROWS WITH TIES;
+
+
+Commit-
+It makes all your changes permanent. Once you run this,
+all Savepoints are deleted, and you can no longer
+ROLLBACK
+
+Savepoint-
+It creates a marker inside your current transaction so you don't have to 
+undo everything if you make a mistake.
+
+Rollback-
+It reverts the database to a previous state.to last commiot or savepoint
+ROLLBACK TO SAVEPOINT savepoint_name;
+
+LOB---- we cant use group by order by or primary key 
+LOBs (Large Objects) are specialized SQL data types designed to store massive
+amounts of unstructured or semi-structured data—like images, videos, large 
+PDF documents,  or long XML/JSON files—that exceed the standard 4,000-byte 
+limit of regular data types like VARCHAR2 or RAW.
+
+BLOB (Binary Large Object): Stores unstructured binary data (e.g., images, audio, video).
+It is treated as a stream of bytes without character set semantics. 
+
+CLOB (Character Large Object): Stores large blocks of character data using the database's 
+default character set (e.g., long text documents, HTML). 
+
+NCLOB (National Character Large Object): Similar to CLOB but uses the National Character Set'
+(typically Unicode) to support multi-byte characters for international text. 
+
+BFILE (Binary File): An "external" LOB that stores a pointer (locator) in the database while
+the actual file remains on the server's operating system. These are read-only and do not
+support database transactions like COMMIT or ROLLBACK. 
+
+Unused-
+it works faster than drop andwe cant bring it back it does the same thing as drop but faster  
+rollback does not bring back the unused col
+alter table a 
+set unused column col_name ;
+
+
+
+external table --
+In Oracle, you must first define a directory object that points to the folder on your server where the file lives.
+External table-
+SQL> CREATE TABLE emp_load
+  2    (employee_number      CHAR(5),
+  3     employee_dob         CHAR(20),
+  4     employee_last_name   CHAR(20),
+  5     employee_first_name  CHAR(15),
+  6     employee_middle_name CHAR(15),
+  7     employee_hire_date   DATE)
+  8  ORGANIZATION EXTERNAL
+  9    (TYPE ORACLE_LOADER
+ 10     DEFAULT DIRECTORY def_dir1
+ 11     ACCESS PARAMETERS
+ 12       (RECORDS DELIMITED BY NEWLINE
+ 13        FIELDS (employee_number      CHAR(2),
+ 14                employee_dob         CHAR(20),
+ 15                employee_last_name   CHAR(18),
+ 16                employee_first_name  CHAR(11),
+ 17                employee_middle_name CHAR(11),
+ 18                employee_hire_date   CHAR(10) date_format DATE mask "mm/dd/yyyy"
+ 19               )
+ 20       )
+ 21     LOCATION ('info.dat')
+ 22    );
+ 
+it does not create a actual table it only create a window for querying the data in the txt or csb
+
+
+SQLPLUS--
+
+accept vinput prompt 
+this will ask the user to input a value and save it in a variable vinput 
+
+prompt val -
+this will print anything after it 
+
+&variable -
+this is for accessing the value stored in the variable 	
+
+u need Drop_table privalage to drop or truncate any table 

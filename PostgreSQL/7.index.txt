@@ -1,0 +1,11 @@
+Index-
+it help to improve the access of data in db.
+adding a lot of inices may improve the speed of data access but they add a
+cost to data to the data modifications
+
+Create index index_name
+on table_name (col1,col2);
+
+Create Unique index index_name
+on table_name (col1,col2);
+works on columns that have only unique values 
