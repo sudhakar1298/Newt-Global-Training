@@ -1,0 +1,73 @@
+HDFS-
+Hadoop Distributed file system 
+it is specially designed file system for storing large amt of data we can
+scale it verticaly and horizontally
+
+Big data Challanges-
+Stroage and processing
+
+for stroage use hdfs 
+for processing use map reduce and spark
+
+HDPS components -
+it follws master-slave architecture 
+it has one name node and many data node 
+
+Namenode-
+all the meta data of data node is stored in data node 
+
+in namenode there are two files editlog and fsimage
+editlog keeps recent changes made on hdfs 
+fsimage keeps track of every change made on hdfs 
+
+secondary namenode-
+it works as namenode if the first namenode fails 	 
+it copies the fsimage and editlog periodically 
+
+DataNode-
+stores the data in blocks
+performs rw operations as per client request 
+
+HDFS Data Blocks-
+hdfs split big files in small split files called data blocks
+
+Rack Awareness-
+rack is a collection of 30-40 nodes 
+it is a concept that helps to decide where the copy of the data node 
+to be stored 
+
+3 copies of a block cannot be stored in a single rack but
+2 copies can be 
+
+HDFS Reading mechanism-
+client opens dfs and sends a rpc call to name node and name node
+sends the meta data of data and that is sent back to client and 
+client sends that to the fsdatainputstream which collects the
+data and gives it to client 
+at last client closes the connection
+
+Lambda function-
+a=lambda x:x+10
+
+map function-
+a=map(func,iterable)
+a=map(upper(),b)  b=['a','b'] 
+
+filter function-
+a=filter(func,iterable)
+numbers = [1, 2, 3, 4, 5, 6]
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+
+reduce function-
+from functools import reduce
+result = reduce(lambda x, y: x + y, [1, 2, 3, 4]) 
+
+Disadvantange of mapreduce-
+1.hard to mangae and administer due to operational complexity
+2.only map and reduce operations are there no join filter union are missing
+3.it always r/w operations after map and reduce operations which takes a toll on performance
+4.it does not support python or R
+
+Spark is a unfied analu=ytics engine mainly designed for 
+large-scale distributed data processing ,in clould or local
+it is real time and batch processing

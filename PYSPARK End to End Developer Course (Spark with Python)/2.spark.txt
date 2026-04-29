@@ -1,0 +1,35 @@
+spark version-
+it is an enrty point to work with rdd,dataframe and other
+functionalities 
+Spark-submit-
+--deploy mode "cluster"
+--deploy mode "client"
+there are two modes by default it is client 
+
+spark.sql.suffle.partitions the number times the data is suffled 
+by default it is 200 
+we can change it by adding --conf.spark.sql.shuffle.partitions=300 to 
+spark-submit
+
+--conf spark.yarn.appMasterEnv.HDFS_PATH to print the 
+hdfs path
+
+What is RDD?-Resilient Distributed Datasets 
+it is low level api spark is built on it 
+it is a low-level data strucute which spark uses to distribute the data btwn tasks 
+while data is being processed 
+
+Features-
+1.Resilient
+2.Distributed
+3.Lazy Evaluation-
+each transformation is lazy operation.evaluation is not started until an action is triggered
+4.Immutablity 
+5.In-memory computation
+
+ways to create rdd-
+1.external data(HDFS,local)
+2.Local Data 
+3.Python list/parallelized Collections
+4.other RDDs
+5.Existing DataFrame
