@@ -1,0 +1,92 @@
+Spark architecture-
+
+1.client submits the code to driver program
+2.driver program the code goes to jvm 
+3.it creates spark context in jvm 
+4. then it gies to dag Scheduler and creates tasks
+5.it goes to task scheduler 
+6.spark context communicates with cluster mangaer for  resources
+7.then cluster mangaer allocates the worker node 
+8.then spark context will use the worker node to complete the code 
+
+
+Cluster manager -
+an external service responsible for acquiring and allocating resources 
+(CPU, memory) across applications running on a cluster.
+
+Different types-
+1.standalone
+2.Apache Mesos
+3.Yarn
+4.Kubernetes
+Resource Manager:
+Runs on Master Node.
+Manages the resources used across the cluster.
+Two components Scheduler and Application Manager.
+
+
+Scheduler- 
+Performs scheduling based on the requirement of resources by the applications.
+Application Manager-
+It manages the running of Application Master and restart it on its failure. Also it is
+responsible to accept the submission of jobs.
+
+Node Manager-
+Runs on all Worker Nodes.
+Launches and monitor containers which are assigned by RM.
+Responsible for the execution of the task in each data node.
+
+Containers-
+Are set of resources like RAM, CPU, memory etc on a single node and they are scheduled by RM and monitored
+by NM.
+Application Master-
+An individual ApplicationMaster is assigned for each job by RM.
+It's chief responsibility is to negotiate the resources from the RM. It works with the Node Manager to monitor
+and execute the tasks.
+
+Terms-
+Application: User application built on Spark.
+
+Job: A parallel computation consisting of multiple tasks that gets spawned in response to a Spark action (e.g. save, collect).
+
+Stage: Each job gets divided into smaller sets of tasks called stages that depend on each other (similar to the map and reduce stages in MapReduce);
+you'll see this term used in the driver's logs.
+
+Task: A unit of work that will be sent to one executor.
+
+Application Jar: Ajar containing the user's Spark application codes.
+
+Driver Program: The process running the main() function of the application and creating the SparkContext.
+
+Cluster Manager: An external service for acquiring resources on the cluster (e.g. standalone manager, Mesos, YARN). In YARN it is Resource Manager
++Application Master.
+
+Deploy Mode: Distinguishes where the driver process runs. In "cluster" mode, the framework launches the driver inside of the cluster. In "client"
+mode, the submitter launches the driver outside of the cluster.
+
+Worker Node: Any node that can run application code in the cluster.
+
+Executor: A process launched for an application on a worker node, that runs tasks and keeps data in memory or disk storage across them. Each
+application has its own executors.
+
+Cache: Cache is nothing but the job resources which we are trying to pass as part of execution. One of the job resource can be our code itself.
+Typically the code will be compiled in the jar file and jar file will be passed as cache and it will be cached into the executors. Tasks will be using this
+cache at the run time so that it can apply the logic onto the data while data is being processed. We can also persist or cache the RDDs.
+
+
+
+Narrow Transformation-
+converts each i/p to only one o/p partition
+it is faster and no data shuffle is there 
+
+Wide Transformation-
+will have i/p partition contributing to many o/p partitions.
+slower
+data shuffle happens 
+
+Broadcast Variable-
+Broadcast variables allow the programmer to keep a read-only variable cached on each machine rather than
+shipping a copy of it with tasks.
+Immutable and cached on each worker nodes only once.
+Efficient manner to give a copy of a large dataset to each node.
+They should fit in memory.

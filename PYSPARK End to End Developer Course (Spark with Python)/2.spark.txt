@@ -33,3 +33,19 @@ ways to create rdd-
 3.Python list/parallelized Collections
 4.other RDDs
 5.Existing DataFrame
+
+Trasformations-
+Row-level Trasformations-
+
+
+Shuffling-
+it is a process of redistributing data across partitions 
+it is a costly operation as it involves disk network i/o 
+it triggers for transformation operations like groupbykey(),join(),union()..
+we should avoid shuffling at all cost if needed use combiner 
+
+Combiner -
+it computed the intermdiate values for each partition values for each partition to 
+avoid partial suffling 	
+
+aggregatebykey()

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Match Details</title>
+    
+</head>
+<body>
+    <a href="/">Back to Home</a>
+    <h2>{{ info.team1 }} vs {{ info.team2 }}</h2>
+    <p><strong>Winner:</strong> {{ info.winner }} | <strong>Player Of the Match:</strong> {{ info.player_of_match }}</p>
+
+    <h3>Fall of Wickets</h3>
+    <table>
+        <tr>
+            <th>Batter Team</th>
+            <th>Batter Out</th>
+            <th>Bowler</th>
+            <th>Out Type</th>
+        </tr>
+        {% for w in wickets %}
+        <tr>
+            <td>{{w.batting_team}}</td>
+            <td>{{ w.player_dismissed }}</td>
+            <td>{{ w.bowler }}</td>
+            <td>{{ w.dismissal_kind }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

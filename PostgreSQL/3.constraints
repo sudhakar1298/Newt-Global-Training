@@ -1,0 +1,28 @@
+Comopsite primary key-
+create table table_name (
+column_name data type....
+
+primary key (column1,column2) );
+the order of the column is imp 
+
+Alter table table_name
+add constraint column_name primary key (column1,column2);
+
+Foreign Key- 
+is a constraint that establishes a relationship between two tables
+ensuring that values in a specific column match values in the primary 
+key of another table
+
+ex-
+CREATE TABLE employees (
+    employee_id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    department_id INT REFERENCES departments(id)
+);
+
+ALTER TABLE employees 
+ADD CONSTRAINT fk_department 
+FOREIGN KEY (department_id) 
+REFERENCES departments(id);
+
+

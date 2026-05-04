@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IPL Analysis</title>
+    
+</head>
+<body>
+    <h1>IPL Match Explorer</h1>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Teams</th>
+            <th>Action</th>
+        </tr>
+        {% for match in matches %}
+        <tr>
+            <td>{{ match.date }}</td>
+            <td>{{ match.team1 }} vs {{ match.team2 }}</td>
+            <td><a href="/match/{{ match.id }}">View Details</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <!-- Your existing table code here -->
+
+<div style="margin-top: 20px;">
+    {% if page > 1 %}
+        <a href="{{ url_for('index', page=page-1) }}"><button>Previous</button></a>
+    {% endif %}
+    
+    <span>Page {{ page }}</span>
+    
+    <a href="{{ url_for('index', page=page+1) }}"><button>Next Page</button></a>
+</div>
+</body>
+</html>
