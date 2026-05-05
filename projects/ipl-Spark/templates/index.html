@@ -6,30 +6,42 @@
 </head>
 <body>
     <h1>IPL Match Explorer</h1>
-    <table>
-        <tr>
-            <th>Date</th>
-            <th>Teams</th>
-            <th>Action</th>
-        </tr>
-        {% for match in matches %}
-        <tr>
-            <td>{{ match.date }}</td>
-            <td>{{ match.team1 }} vs {{ match.team2 }}</td>
-            <td><a href="/match/{{ match.id }}">View Details</a></td>
-        </tr>
-        {% endfor %}
-    </table>
-    <!-- Your existing table code here -->
+<form action="/" method="GET" style="display: flex; gap: 10px; margin-bottom: 20px;">
+    
+    <select name="filter_type">
+        <option value="all" {% if filter_type == 'all' %}selected{% endif %}>Search All</option>
+        <option value="team" {% if filter_type == 'team' %}selected{% endif %}>By Team</option>
+        <option value="city" {% if filter_type == 'city' %}selected{% endif %}>By City</option>
+    </select>
 
-<div style="margin-top: 20px;">
+    
+    <input type="text" name="q" placeholder="Enter keywords..." value="{{ query }}">
+    
+    <button type="submit">Search</button>
+    <a href="/"><button type="button">Reset</button></a>
+</form>
+
+<table> 
+    
+    {% for match in matches %}
+    <tr>
+        <td>{{ match.date }}</td>
+        <td>{{ match.team1 }} vs {{ match.team2 }} ({{ match.city }})</td>
+        <td><a href="/match/{{ match.id }}">View Details</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+<div style="margin-top: 10px;">
     {% if page > 1 %}
-        <a href="{{ url_for('index', page=page-1) }}"><button>Previous</button></a>
+        <a href="/?page={{ page - 1 }}&q={{ query }}">Previous</a>
     {% endif %}
     
     <span>Page {{ page }}</span>
     
-    <a href="{{ url_for('index', page=page+1) }}"><button>Next Page</button></a>
+    <a href="/?page={{ page + 1 }}&q={{ query }}">Next</a>
 </div>
+    
 </body>
 </html>
