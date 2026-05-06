@@ -3,12 +3,14 @@ package com.commerce.demo.repository;
 import com.commerce.demo.model.product;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 @Repository
 public class ProductRepository {
 
+    @Autowired
     private final JdbcTemplate jdbcTemplate;
 
     public ProductRepository(JdbcTemplate jdbcTemplate) {
@@ -16,7 +18,7 @@ public class ProductRepository {
     }
 
     public List<product> getAllProducts() {
-        String sql = "SELECT * FROM products";
+        String sql = "SELECT * FROM products order by id";
 
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             product p = new product();
@@ -34,5 +36,17 @@ public class ProductRepository {
                 p.getName(),
                 p.getPrice(),
                 p.getQuantity());
+    }
+
+    public void rem(product p) {
+        String sql = "UPDATE products set quantity=quantity-1 where ID=(?) AND quantity > 0";
+        jdbcTemplate.update(sql, p.getId());
+
+    }
+
+    public void inc(product p) {
+        String sql = "UPDATE products set quantity=quantity+1 where ID=(?) AND quantity > 0";
+        jdbcTemplate.update(sql, p.getId());
+
     }
 }

@@ -1,4 +1,4 @@
-package com.telusko.JobApp;
+package com.JobApp;
 
 import org.springframework.boot.SpringApplication;
 

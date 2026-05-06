@@ -1,4 +1,4 @@
-package com.telusko.JobApp.model;
+package com.JobApp.model;
 
 
 import java.util.List;
