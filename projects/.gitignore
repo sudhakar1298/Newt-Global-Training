@@ -12,6 +12,7 @@ venv/
 .vevn 
 .vevn/
 env/
+.zip
 
 # Django static/media
 staticfiles/
