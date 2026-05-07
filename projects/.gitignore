@@ -1,0 +1,65 @@
+# =========================
+# Python / Django
+# =========================
+__pycache__/
+*.py[cod]
+*.sqlite3
+db.sqlite3
+*.log
+.env
+venv/
+.venv/
+.vevn 
+.vevn/
+env/
+
+# Django static/media
+staticfiles/
+media/
+
+# Migrations (optional)
+# */migrations/
+# !*/migrations/__init__.py
+
+# =========================
+# Java / Spring Boot
+# =========================
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven
+.mvn/
+dependency-reduced-pom.xml
+
+# Gradle
+.gradle/
+build/
+out/
+
+# =========================
+# IDE files
+# =========================
+.idea/
+.vscode/
+*.iml
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Database files
+# =========================
+*.db
+*.db-shm
+*.db-wal
+
+# =========================
+# Zip files
+# =========================
+*.zip
