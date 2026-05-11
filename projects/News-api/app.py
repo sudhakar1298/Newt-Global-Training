@@ -3,7 +3,7 @@ from send import send
 
 aoi_key="0667aeb2affd48adaf530ef641041b77"
 t="tesla"
-url=f"https://newsapi.org/v2/everything?q={t}&from=2026-04-06&" \
+url=f"https://newsapi.org/v2/everything?q={t}&from=2026-05-05&" \
     "sortBy=publishedAt&apiKey=0667aeb2affd48adaf530ef641041b77&language=en"
 
 request=r.get(url)
